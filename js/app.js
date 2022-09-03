@@ -8,7 +8,9 @@ const loadWatherData = async city => {
 
 const displayWatherDetails = data => {
     const temperature = document.getElementById('temperature');
+    const leadContainer = document.getElementById('lead-container');
     temperature.innerText = data.main.temp;
+    leadContainer.innerText = data.weather[0].main
 }
 // ================================
 const display = () => {
