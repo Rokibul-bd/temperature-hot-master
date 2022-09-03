@@ -15,15 +15,6 @@ document.getElementById('search-btn').addEventListener('click', function () {
     inputField.value = ''
     loadWatherData(cityName)
 })
-const displayWatherDetails = (data) => {
-    const inputField = document.getElementById('search-input-field');
-    const tempContainer = document.getElementById('temperature');
-    const cityContainer = document.getElementById('city-container');
-    const cityName = inputField.value;
-    inputField.value = ''
-    cityContainer.innerText = cityName;
-    tempContainer.innerText = data.main.temp;
-}
 loadWatherData('Dhaka')
 // Enter key press 
 const inputField = document.getElementById('search-input-field');
