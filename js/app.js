@@ -5,23 +5,30 @@ const loadWatherData = async city => {
     const data = await res.json();
     displayWatherDetails(data)
 }
-// event hundler add in search btn and show wather 
-document.getElementById('search-btn').addEventListener('click', function () {
+
+const displayWatherDetails = data => {
+    const temperature = document.getElementById('temperature');
+    temperature.innerText = data.main.temp;
+}
+// ================================
+const display = () => {
     const inputField = document.getElementById('search-input-field');
     const cityContainer = document.getElementById('city-container');
     const cityName = inputField.value;
-    cityName.toUpperCase()
     cityContainer.innerText = cityName;
-    inputField.value = ''
+    inputField.value = '';
     loadWatherData(cityName)
+}
+
+// click button to work event hundler add to search button 
+document.getElementById('search-btn').addEventListener('click', function () {
+    display()
 })
-loadWatherData('Dhaka')
-// Enter key press 
-const inputField = document.getElementById('search-input-field');
-inputField.addEventListener('keypress', function (e) {
-    // inputField value get 
+document.getElementById('search-input-field').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
-        e.preventDefault();
-        loadWatherData(e.key)
+        e.preventDefault()
+        display()
     }
 })
+
+loadWatherData('Dhaka')
